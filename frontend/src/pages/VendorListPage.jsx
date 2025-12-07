@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../api/client.js";
-import axios from "axios";
 import VendorForm from "../components/VendorForm.jsx";
 import VendorTable from "../components/VendorTable.jsx";
 
@@ -12,7 +11,7 @@ function VendorListPage() {
 
   const fetchVendors = async () => {
     try {
-      const res = await axios.get("http://localhost:5000"+"/api/vendors");
+      const res = await api.get("/api/vendors");
       setVendors(res.data.vendors || []);
     } catch (err) {
       console.error(err);
